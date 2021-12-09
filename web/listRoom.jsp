@@ -82,7 +82,7 @@
                             <td>${p.bed}</td>
                             <td>${p.usedBed}</td>
                             <td>${p.price}</td>
-                            <td><a href="#">Detail</a></td>
+                            <td><a href="roomDetail?room=${p.roomId}">Detail</a></td>
                         </tr>
                     </c:forEach>
                 </tr>

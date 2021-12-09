@@ -14,10 +14,27 @@ import java.sql.Date;
 public class Student {
     private String studentId, name, roomId;
     private Date checkin, checkout;
-
+    private int electricity, water;
+    
     public Student() {
     }
 
+    public int getElectricity() {
+        return electricity;
+    }
+
+    public void setElectricity(int electricity) {
+        this.electricity = electricity;
+    }
+
+    public int getWater() {
+        return water;
+    }
+
+    public void setWater(int water) {
+        this.water = water;
+    }
+    
     public String getStudentId() {
         return studentId;
     }
@@ -60,4 +77,3 @@ public class Student {
     
     
 }
-

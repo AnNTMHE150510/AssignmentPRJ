@@ -4,9 +4,17 @@
         <servlet-name>ListRoomServlet</servlet-name>
         <servlet-class>controller.ListRoomServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RoomDetailServlet</servlet-name>
+        <servlet-class>controller.RoomDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListRoomServlet</servlet-name>
         <url-pattern>/listRoom</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoomDetailServlet</servlet-name>
+        <url-pattern>/roomDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

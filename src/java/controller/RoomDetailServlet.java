@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dal.RoomDAO;
+import dal.StudentDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -13,13 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Room;
+import model.Student;
 
 /**
  *
  * @author Admin
  */
-public class ListRoomServlet extends HttpServlet {
+public class RoomDetailServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +38,10 @@ public class ListRoomServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ListRoomServlet</title>");            
+            out.println("<title>Servlet RoomDetailServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ListRoomServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RoomDetailServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,28 +59,15 @@ public class ListRoomServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RoomDAO pdb = new RoomDAO();
-        //PrintWriter out = response.getWriter();
-        List<Room> list1 =pdb.getAll();
+        String room = request.getParameter("room");
         
-        int page, numberpage = 60;
-        int size = list1.size();
-        String xpage = request.getParameter("page");
-        if (xpage==null){
-            page=1;
-        } else {
-            page = Integer.parseInt(xpage);
-        }
-        int start,end;
-        int num = (size%numberpage==0 ?(size/numberpage):(size/numberpage)+1);
-        start = (page-1)*numberpage;
-        end = Math.min(page*numberpage,size);
-        List<Room> list = pdb.getListByPage(list1, start, end);
-      
-        request.setAttribute("data",list);
-        request.setAttribute("page", page);
-        request.setAttribute("num", num);
-        request.getRequestDispatcher("listRoom.jsp").forward(request, response);
+        StudentDAO s = new StudentDAO();
+        List<Student> list = s.getStudentsByRoom(room);
+        
+        request.setAttribute("listroom", list);
+        //PrintWriter out = response.getWriter();
+
+        request.getRequestDispatcher("detailRoom.jsp").forward(request, response);
     }
 
     /**
