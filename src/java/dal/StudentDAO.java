@@ -45,4 +45,31 @@ public class StudentDAO extends DBContext {
         }
         return list;
     }
+    
+    public List<Student> getStudentsByID(String id) {
+        List<Student> list = new ArrayList<>();
+        String sql = "select s.StudentID, s.Name, s.Checkin, s.Checkout, r.Electricity, r.Water, r.roomID, r.usedbed from room r inner join Students s on r.RoomID = s.RoomID where s.StudentID like '%"+id+"%' ";
+        
+        try{
+            PreparedStatement st = connection.prepareStatement(sql);
+            //st.setString(1, name);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                Student p = new Student();
+       
+                p.setStudentId(rs.getString("studentID"));
+                p.setName(rs.getString("name"));
+                p.setCheckin(rs.getDate("Checkin"));
+                p.setCheckout(rs.getDate("Checkout"));
+                p.setElectricity(rs.getInt("Electricity")/rs.getInt("usedbed"));
+                p.setWater(rs.getInt("Water")/rs.getInt("usedbed"));
+                p.setRoomId(rs.getString("roomID"));
+                list.add(p);
+            }
+          
+        } catch(SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
 }

@@ -16,15 +16,19 @@
             table{
                 border-collapse: collapse;
                 margin:auto;
-                
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+            body{
+                background: #ffeaa785;
             }
             th,td{
                 padding: 8px 32px;
                 border:1px solid gray;
+                font-size:16px;
             }
             .content{
                 width:100%;
-                float:left;
+                
                 margin-left:30px;
                 height:auto;
                 
@@ -32,6 +36,7 @@
             
             .pagination {
                  display: inline-block;
+                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
               }
              .pagination a {
@@ -48,12 +53,22 @@
             .pagination a:hover:not(.active) {
                 background-color: chocolate;
             }   
-            
-
+            #search-form{
+                position:absolute;
+                top:5%;
+                right:5%;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+            #search-form input{
+                font-size: 16px;
+                padding:4px;
+                border-radius: 5px;
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
         </style>
     <body>
         <div class="content">
-
+            
             <c:set var="page" value="${requestScope.page}"/>
             <h3 class="dom">DOM:</h3>
             <div class="pagination">
@@ -62,6 +77,13 @@
                     <a class="${i==page?"active":""}" href="listRoom?page=${i}">${i==1?"A":i==2?"B":i==3?"C":"D"}</a>
                 </c:forEach>
             </div>
+            
+            
+            <form action="search" id="search-form">
+                <input type="text" name="id" placeholder="Search student's ID"/>
+                <input type="Submit" value="Search"/>
+            </form>
+            
             <table>
                 <tr>
                     <th>STT </th>               
@@ -88,6 +110,7 @@
                 </tr>
             </table>
         </div>
+        
     </body>
+    
 </html>
-

@@ -13,15 +13,20 @@
         <title>JSP Page</title>
     </head>
     <style>
+        body{
+                background: #ffeaa785;
+            }
         table{
                 border-collapse: collapse;
                 margin:auto;
                 margin-top:100px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                 
             }
         th,td{
                 padding: 10px 35px;
                 border:1px solid gray;
+                font-size:16px;
             }
         .content{
                 width:100%;
