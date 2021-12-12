@@ -46,9 +46,9 @@ public class StudentDAO extends DBContext {
         return list;
     }
     
-    public List<Student> getStudentsByID(String id) {
+    public List<Student> getStudentsByName(String name) {
         List<Student> list = new ArrayList<>();
-        String sql = "select s.StudentID, s.Name, s.Checkin, s.Checkout, r.Electricity, r.Water, r.roomID, r.usedbed from room r inner join Students s on r.RoomID = s.RoomID where s.StudentID like '%"+id+"%' ";
+        String sql = "select s.StudentID, s.Name, s.Checkin, s.Checkout, r.Electricity, r.Water, r.roomID, r.usedbed from room r inner join Students s on r.RoomID = s.RoomID where s.name like N'%"+name+"%' ";
         
         try{
             PreparedStatement st = connection.prepareStatement(sql);

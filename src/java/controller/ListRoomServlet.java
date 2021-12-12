@@ -76,7 +76,7 @@ public class ListRoomServlet extends HttpServlet {
         start = (page-1)*numberpage;
         end = Math.min(page*numberpage,size);
         List<Room> list = pdb.getListByPage(list1, start, end);
-      
+        
         request.setAttribute("data",list);
         request.setAttribute("page", page);
         request.setAttribute("num", num);

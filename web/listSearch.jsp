@@ -40,10 +40,26 @@
             color:red;
             margin-top:50px;
         }
+        #search-form{
+                position:absolute;
+                top:5%;
+                right:5%;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        #search-form input{
+                font-size: 18px;
+                padding:4px;
+                border-radius: 5px;
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
     </style>
     </head>
     <body>
-        <h2> Search result for "<%=request.getParameter("id")%>"</h2>
+        <form action="search" id="search-form">
+                <input type="text" name="name" placeholder="Search student's Name"/>
+                <input type="Submit" value="Search"/>
+        </form>
+        <h2> Search result for "<%=request.getParameter("name")%>"</h2>
         
         <%  List<Student>list = (List<Student>)request.getAttribute("listsearch"); 
             if (list.size()>0){

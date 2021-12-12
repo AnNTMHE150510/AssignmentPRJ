@@ -33,8 +33,24 @@
                 height:auto;
                 
             }
+        #search-form{
+                position:absolute;
+                top:5%;
+                right:5%;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        #search-form input{
+                font-size: 18px;
+                padding:4px;
+                border-radius: 5px;
+                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
     </style>
     <body>
+        <form action="search" id="search-form">
+                <input type="text" name="name" placeholder="Search student's Name"/>
+                <input type="Submit" value="Search"/>
+        </form>
         <div class="content">
             <table>
                 <tr>

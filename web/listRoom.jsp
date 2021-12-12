@@ -24,7 +24,7 @@
             th,td{
                 padding: 8px 32px;
                 border:1px solid gray;
-                font-size:16px;
+                font-size:20px;
             }
             .content{
                 width:100%;
@@ -41,7 +41,7 @@
               }
              .pagination a {
                 color: black;
-                font-size: 18px;
+                font-size: 16px;
                 float: left;
                 padding: 8px 16px;
                 text-decoration: none;
@@ -60,7 +60,7 @@
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             }
             #search-form input{
-                font-size: 16px;
+                font-size: 18px;
                 padding:4px;
                 border-radius: 5px;
                 font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -80,7 +80,7 @@
             
             
             <form action="search" id="search-form">
-                <input type="text" name="id" placeholder="Search student's ID"/>
+                <input type="text" name="name" placeholder="Search student's Name"/>
                 <input type="Submit" value="Search"/>
             </form>
             

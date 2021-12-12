@@ -59,14 +59,16 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String name = request.getParameter("name");
+        
         StudentDAO sdb = new StudentDAO();
-         List<Student> list = sdb.getStudentsByID(id);
+         List<Student> list = sdb.getStudentsByName(name);
         
         request.setAttribute("listsearch", list);
-        //PrintWriter out = response.getWriter();
-        //out.println(id);
+//        PrintWriter out = response.getWriter();
+//        out.println(id);
         request.getRequestDispatcher("listSearch.jsp").forward(request, response);
     }
 
